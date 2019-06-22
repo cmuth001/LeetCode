@@ -1,2 +1,2 @@
 # LeetCode
-Coding practice file
+Problem Solving solutions
