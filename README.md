@@ -1,2 +1,2 @@
 # LeetCode
-Problem Solving solutions
+Problem Solving 
