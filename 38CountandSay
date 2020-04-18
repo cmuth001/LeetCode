@@ -28,3 +28,27 @@ class 38CountandSay {
         return tempStr;
     }
 }
+
+
+// 2nd solution
+class Solution {
+   public String countAndSay(int n) {
+       if(n<1) return null;
+       
+       String ans = "1", temp ="";
+       int j =0;
+       while(n>1){
+           temp = "";
+           for(int i = 0; i<ans.length();){
+               j = i+1;
+               while(j<ans.length() && ans.charAt(i) == ans.charAt(j)) j++;
+               temp = temp + (j - i) + ans.charAt(i);
+               i = j;
+           }
+           ans = temp;
+           n--;
+       }
+       
+        return ans;
+    }
+}
