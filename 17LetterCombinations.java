@@ -1,4 +1,5 @@
 class Solution {
+    // DFS Recursive Method
     Map<String, String> phone = new HashMap<String, String>() {{
     put("2", "abc");
     put("3", "def");
@@ -29,4 +30,39 @@ class Solution {
         }
         return output;
     }
+    
+    // BFS: Iterative Method
+public List<String> letterCombinations(String digits) {
+    HashMap<Character, String> phone = new HashMap<>();
+    phone.put('2', "abc");
+    phone.put('3', "def");
+    phone.put('4', "ghi");
+    phone.put('5', "jkl");
+    phone.put('6', "mno");
+    phone.put('7', "pqrs");
+    phone.put('8', "tuv");
+    phone.put('9', "wxyz");
+ 
+    List<String> output = new ArrayList<>();
+    if (digits.length() == 0) {
+        return output;
+    }
+ 
+    output.add("");
+    for(int i = 0; i<digits.length(); i++){
+        String letters = phone.get(digits.charAt(i));
+        List<String> temp = new ArrayList<String>();
+        for(int j = 0; j<output.size() ; j++){
+            for(int k = 0; k<letters.length(); k++){
+                temp.add(new StringBuilder(output.get(j)).append(letters.charAt(k)).toString());
+            }
+        }
+        output.clear();
+        output.addAll(temp);
+    }
+ 
+    return output;
+}
+    
+    
 }
